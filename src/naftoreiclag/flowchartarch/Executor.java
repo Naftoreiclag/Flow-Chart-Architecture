@@ -7,27 +7,38 @@ package naftoreiclag.flowchartarch;
 
 import java.util.List;
 
+import naftoreiclag.flowchartarch.concrete.MakeSandwich;
+
 public class Executor
 {
+	Microtask microtask;
 	WantRoot root = new WantRoot();
 	
 	public void run()
 	{
+		root.addWant(new MakeSandwich(root));
+		
 		evaluate(root);
 	}
 	
-	public void evaluate(IElement step)
+	public void setMicrotask(Microtask microTask)
+	{
+		this.microtask = microTask;
+	}
+	
+	public void evaluate(Element step)
 	{
 		// TODO check for anomalies
-		step.execute();
+		step.execute(null);
+		System.out.println("Executed " + step.getClass().getSuperclass().getSimpleName() + ": " + step.getClass().getSimpleName());
 		
-		List<IElement> subSteps = step.getChildren();
+		List<Element> subSteps = step.getChildren();
 		
 		if(subSteps != null)
 		{
 			for(int i = 0; i < subSteps.size(); ++ i)
 			{
-				IElement nextStep = subSteps.get(i);
+				Element nextStep = subSteps.get(i);
 				
 				evaluate(nextStep);
 			}

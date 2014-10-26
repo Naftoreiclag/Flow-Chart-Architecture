@@ -7,28 +7,10 @@ package naftoreiclag.flowchartarch;
 
 import java.util.List;
 
-public class Task implements IElement
+public abstract class Task extends Element
 {
-
-	@Override
-	public IElement getParent()
+	public Task(Element parent)
 	{
-		// TODO Auto-generated method stub
-		return null;
+		super(parent);
 	}
-
-	@Override
-	public List<IElement> getChildren()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Anomaly execute()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

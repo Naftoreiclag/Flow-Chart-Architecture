@@ -7,28 +7,13 @@ package naftoreiclag.flowchartarch;
 
 import java.util.List;
 
-public class Wait implements IElement
+public abstract class Wait extends Element
 {
 
-	@Override
-	public IElement getParent()
+	public Wait(Element parent)
 	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<IElement> getChildren()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Anomaly execute()
-	{
-		// TODO Auto-generated method stub
-		return null;
+		super(parent);
+		// TODO Auto-generated constructor stub
 	}
 
 }

@@ -5,7 +5,7 @@
  */
 package naftoreiclag.flowchartarch;
 
-public class Anomaly
+public abstract class Anomaly
 {
 
 }

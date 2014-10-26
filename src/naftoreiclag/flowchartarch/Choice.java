@@ -7,25 +7,25 @@ package naftoreiclag.flowchartarch;
 
 import java.util.List;
 
-public class Choice implements IElement
+public abstract class Choice extends Element
 {
+	
+
+	public Choice(Element parent)
+	{
+		super(parent);
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
-	public IElement getParent()
+	public List<Element> getChildren()
 	{
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<IElement> getChildren()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Anomaly execute()
+	public Anomaly execute(Executor executor)
 	{
 		// TODO Auto-generated method stub
 		return null;

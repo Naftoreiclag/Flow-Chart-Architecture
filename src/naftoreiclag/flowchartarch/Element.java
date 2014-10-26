@@ -8,24 +8,20 @@ package naftoreiclag.flowchartarch;
 import java.util.LinkedList;
 import java.util.List;
 
-public class WantRoot extends Element
+public abstract class Element
 {
+	public final Element parent;
+	public final List<Element> children = new LinkedList<Element>();
 	
-
-	public WantRoot()
+	public Element(Element parent)
 	{
-		super(null);
+		this.parent = parent;
 	}
-	public void addWant(Want want)
+	
+	public List<Element> getChildren()
 	{
-		children.add(want);
+		return children;
 	}
-
-	@Override
-	public Anomaly execute(Executor executor)
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
+	public abstract Anomaly execute(Executor executor);
 }
