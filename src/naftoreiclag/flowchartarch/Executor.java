@@ -11,6 +11,9 @@ import naftoreiclag.flowchartarch.concrete.MakeSandwich;
 
 public class Executor
 {
+	
+	public Inventory inv = new Inventory();
+	
 	Microtask microtask;
 	WantRoot root = new WantRoot();
 	
@@ -28,9 +31,12 @@ public class Executor
 	
 	public void evaluate(Element step)
 	{
-		// TODO check for anomalies
-		step.execute(null);
+		Anomaly a = step.execute(this);
 		System.out.println("Executed " + step.getClass().getSuperclass().getSimpleName() + ": " + step.getClass().getSimpleName());
+		if(a != null)
+		{
+			System.out.println("  Anomaly: " + a);
+		}
 		
 		List<Element> subSteps = step.getChildren();
 		

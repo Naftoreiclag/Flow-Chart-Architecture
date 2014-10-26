@@ -13,7 +13,6 @@ public abstract class Wait extends Element
 	public Wait(Element parent)
 	{
 		super(parent);
-		// TODO Auto-generated constructor stub
 	}
 
 }

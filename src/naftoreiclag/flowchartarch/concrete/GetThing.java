@@ -8,21 +8,33 @@ package naftoreiclag.flowchartarch.concrete;
 import naftoreiclag.flowchartarch.Anomaly;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
+import naftoreiclag.flowchartarch.GlobalInv;
 import naftoreiclag.flowchartarch.Task;
-import naftoreiclag.flowchartarch.Want;
 
-public class LocateBread extends Want
+public class GetThing extends Task
 {
-	public LocateBread(Element parent)
+	String target;
+	
+	public GetThing(Element parent, String target)
 	{
 		super(parent);
+		
+		this.target = target;
 	}
 
 	@Override
 	public Anomaly execute(Executor executor)
 	{
-		this.children.add(new GetThing(this, "bread"));
+		if(GlobalInv.i.transferObject(executor.inv, target))
+		{
+			return null;
+		}
+		else
+		{
+
+			return new Anomaly("There is no " + target + " to take!");
+		}
 		
-		return null;
 	}
+
 }
