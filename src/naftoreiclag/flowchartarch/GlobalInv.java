@@ -7,5 +7,11 @@ package naftoreiclag.flowchartarch;
 
 public class GlobalInv
 {
-	public static final Inventory i = new Inventory();
+	public static final Inventory i = new Inventory("Goodie bag");
+	
+	static
+	{
+		i.addObject("bread");
+		i.addObject("bread");
+	}
 }

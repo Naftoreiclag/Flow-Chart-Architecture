@@ -25,15 +25,15 @@ public class GetThing extends Task
 	@Override
 	public Anomaly execute(Executor executor)
 	{
-		if(GlobalInv.i.transferObject(executor.inv, target))
+		if(!GlobalInv.i.transferObject(executor.inv, target))
 		{
-			return null;
-		}
-		else
-		{
-
 			return new Anomaly("There is no " + target + " to take!");
 		}
+		
+		GlobalInv.i.printOut();
+		executor.inv.printOut();
+		
+		return null;
 		
 	}
 

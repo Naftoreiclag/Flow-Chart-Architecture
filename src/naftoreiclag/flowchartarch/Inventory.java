@@ -12,11 +12,18 @@ import java.util.Random;
 public class Inventory
 {
 	private final List<String> objects = new ArrayList<String>();
+	public final String name;
+	
+	public Inventory(String name)
+	{
+		this.name = name;
+	}
 	
 	public void addObject(String object)
 	{
 		Random rand = new Random();
-		objects.add(rand.nextInt(objects.size()), object);
+		int a = objects.size() + 1;
+		objects.add(rand.nextInt(a), object);
 	}
 	
 	//
@@ -32,5 +39,15 @@ public class Inventory
 			}
 		}
 		return false;
+	}
+
+	public void printOut()
+	{
+		System.out.println("  " + this.name + " contents:");
+		for(int i = 0; i < objects.size(); ++ i)
+		{
+			System.out.println("    " + objects.get(i));
+		}
+		
 	}
 }
