@@ -10,19 +10,21 @@ import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.Want;
 
-public class MakeSandwich extends Want
+public class GetMaterialsForSandwich extends Want
 {
-	public MakeSandwich(Element parent)
+
+	public GetMaterialsForSandwich(Element parent)
 	{
 		super(parent);
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public Anomaly execute(Executor executor)
 	{
-		children.add(new GetMaterialsForSandwich(this));
-		children.add(new ConstructSandwich(this));
-		
+		children.add(new LocateBread(this));
+		children.add(new LocateBread(this));
 		return null;
 	}
+
 }

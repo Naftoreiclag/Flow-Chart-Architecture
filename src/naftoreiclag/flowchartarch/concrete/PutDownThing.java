@@ -8,11 +8,11 @@ package naftoreiclag.flowchartarch.concrete;
 import naftoreiclag.flowchartarch.Anomaly;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
-import naftoreiclag.flowchartarch.Want;
+import naftoreiclag.flowchartarch.Task;
 
-public class MakeSandwich extends Want
+public class PutDownThing extends Task
 {
-	public MakeSandwich(Element parent)
+	public PutDownThing(Element parent)
 	{
 		super(parent);
 	}
@@ -20,9 +20,8 @@ public class MakeSandwich extends Want
 	@Override
 	public Anomaly execute(Executor executor)
 	{
-		children.add(new GetMaterialsForSandwich(this));
-		children.add(new ConstructSandwich(this));
-		
+		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

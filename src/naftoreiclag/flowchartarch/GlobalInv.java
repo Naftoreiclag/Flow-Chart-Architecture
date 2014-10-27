@@ -8,6 +8,7 @@ package naftoreiclag.flowchartarch;
 public class GlobalInv
 {
 	public static final Inventory i = new Inventory("Goodie bag");
+	public static final Inventory t = new Inventory("Table");
 	
 	static
 	{
