@@ -10,6 +10,9 @@ import java.util.List;
 
 public abstract class Element
 {
+	public int timesAccessed;
+	public int age;
+	
 	public final Element parent;
 	public final List<Element> children = new LinkedList<Element>();
 	

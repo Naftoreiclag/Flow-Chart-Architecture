@@ -18,13 +18,14 @@ public class Executor
 	WantRoot root = new WantRoot();
 	Genes genes = new Genes();
 	
-	public void run()
+	public void run() throws Exception
 	{
 		GlobalInv.i.printOut();
 		
 		genes.addWant(new MakeSandwich(root));
 
 		ParseFiler.writeGenes(genes);
+		ParseFiler.readGenes();
 		/*
 		root.addWant(new MakeSandwich(root));
 		

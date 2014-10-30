@@ -18,8 +18,19 @@ import org.apache.commons.io.FileUtils;
 public class ParseFiler
 {
 	public static final char sep = ',';
+	public static final char ssep = '|';
 	public static final char tab = '\t';
 	public static final char nl = '\n';
+	
+	public static Genes readGenes() throws IOException
+	{
+		List<String> data = FileUtils.readLines(new File("file.txt"));
+		
+		System.out.println(data.size());
+		
+		return null;
+		
+	}
 	
 	public static void writeGenes(Genes genes)
 	{
@@ -56,6 +67,14 @@ public class ParseFiler
 		builder.append(elements.getTypeName());
 		builder.append(sep);
 		builder.append(elements.getName());
+		builder.append(sep);
+		
+		// args here
+
+		builder.append(ssep);
+		
+		// other stuff here
+		
 		builder.append(nl);
 		
 		List<Element> children = elements.getChildren();
