@@ -47,7 +47,7 @@ public class Executor
 			System.out.println("  Anomaly: " + a);
 		}
 		
-		List<Element> subSteps = step.getChildren();
+		List<Element> subSteps = step.children;
 		
 		if(subSteps != null)
 		{

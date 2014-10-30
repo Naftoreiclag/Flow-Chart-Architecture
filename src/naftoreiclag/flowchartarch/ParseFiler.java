@@ -12,13 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import naftoreiclag.flowchartarch.concrete.ConstructSandwich;
-import naftoreiclag.flowchartarch.concrete.GetMaterialsForSandwich;
-import naftoreiclag.flowchartarch.concrete.GetThing;
-import naftoreiclag.flowchartarch.concrete.LocateBread;
 import naftoreiclag.flowchartarch.concrete.MakeSandwich;
-import naftoreiclag.flowchartarch.concrete.PutDownThing;
-
 import org.apache.commons.io.FileUtils;
 
 public class ParseFiler
@@ -68,27 +62,13 @@ public class ParseFiler
 					break;
 				}
 			}
-			String typeName = line.substring(depth, head);
+			String name = line.substring(depth, head);
 			++ head;
 			
-			/*
-			// Concrete name
-			int _foo = head;
-			for(; head < line.length(); ++ head)
-			{
-				if(line.charAt(head) == sep)
-				{
-					break;
-				}
-			}
-			String name = line.substring(_foo, head);
-			++ head;
-			*/
-			
-			System.out.println("depth: " + depth + " type: " + typeName);
+			System.out.println("depth: " + depth + " type: " + name);
 			
 			// parse accordingly
-			Element el = parse(typeName);
+			Element el = parse(name);
 			
 			linage.add(depth, el);
 			
@@ -103,12 +83,7 @@ public class ParseFiler
 	public static Map<String, Element> things = new HashMap<String, Element>();
 	static
 	{
-		things.put(ConstructSandwich.name, new ConstructSandwich(null));
-		things.put(GetMaterialsForSandwich.name, new GetMaterialsForSandwich(null));
-		things.put(GetThing.name, new GetThing(null, null));
-		things.put(LocateBread.name, new LocateBread(null));
-		things.put(MakeSandwich.name, new MakeSandwich(null));
-		things.put(PutDownThing.name, new PutDownThing(null, null));
+		things.put(MakeSandwich.name, new MakeSandwich());
 		//things.
 	}
 	
@@ -149,7 +124,7 @@ public class ParseFiler
 		}
 	}
 	
-	private static void appendElementData(StringBuilder builder, int depth, Element elements)
+	private static void appendElementData(StringBuilder builder, int depth, Element element)
 	{
 		if(depth >= 0)
 		{
@@ -157,7 +132,7 @@ public class ParseFiler
 			{
 				builder.append(tab);
 			}
-			builder.append(elements.getName());
+			builder.append(element.getName());
 			builder.append(sep);
 			
 			// args here
@@ -169,12 +144,11 @@ public class ParseFiler
 			builder.append(nl);
 		}
 		
-		List<Element> children = elements.getChildren();
-		if(children != null)
+		if(element.children != null)
 		{
-			for(int i = 0; i < children.size(); ++ i)
+			for(int i = 0; i < element.children.size(); ++ i)
 			{
-				Element child = children.get(i);
+				Element child = element.children.get(i);
 				appendElementData(builder, depth + 1, child);
 			}
 		}

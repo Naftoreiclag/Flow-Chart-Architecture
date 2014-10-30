@@ -10,10 +10,6 @@ import java.util.List;
 public abstract class Wait extends Element
 {
 
-	public Wait(Element parent)
-	{
-		super(parent);
-	}
 	public static final String name = "choice";
 	@Override
 	public String getTypeName()

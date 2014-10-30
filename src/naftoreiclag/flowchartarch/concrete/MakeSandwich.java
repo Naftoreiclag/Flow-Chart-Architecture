@@ -12,17 +12,9 @@ import naftoreiclag.flowchartarch.Want;
 
 public class MakeSandwich extends Want
 {
-	public MakeSandwich(Element parent)
-	{
-		super(parent);
-	}
-
 	@Override
 	public Surprise execute(Executor executor)
 	{
-		children.add(new GetMaterialsForSandwich(this));
-		children.add(new ConstructSandwich(this));
-		
 		return null;
 	}
 	
@@ -35,6 +27,6 @@ public class MakeSandwich extends Want
 	@Override
 	public Element clone()
 	{
-		return new MakeSandwich(null);
+		return new MakeSandwich();
 	}
 }

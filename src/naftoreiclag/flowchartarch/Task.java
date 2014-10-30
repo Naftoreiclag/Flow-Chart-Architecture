@@ -9,10 +9,6 @@ import java.util.List;
 
 public abstract class Task extends Element
 {
-	public Task(Element parent)
-	{
-		super(parent);
-	}
 	public static final String name = "choice";
 	@Override
 	public String getTypeName()

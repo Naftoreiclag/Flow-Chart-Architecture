@@ -12,10 +12,6 @@ import naftoreiclag.flowchartarch.concrete.MakeSandwich;
 
 public class Genes extends Element
 {
-	public Genes()
-	{
-		super(null);
-	}
 	public void addWant(Want want)
 	{
 		children.add(want);

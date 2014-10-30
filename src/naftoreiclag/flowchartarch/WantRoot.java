@@ -12,10 +12,6 @@ public class WantRoot extends Element
 {
 	public static final String name = "root";
 
-	public WantRoot()
-	{
-		super(null);
-	}
 	public void addWant(Want want)
 	{
 		children.add(want);

@@ -7,11 +7,6 @@ package naftoreiclag.flowchartarch;
 
 public abstract class Want extends Element
 {
-	public Want(Element parent)
-	{
-		super(parent);
-	}
-	
 	public static final String name = "want";
 	@Override
 	public String getTypeName()

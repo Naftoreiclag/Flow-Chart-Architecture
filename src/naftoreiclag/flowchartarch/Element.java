@@ -16,13 +16,15 @@ public abstract class Element
 	protected Element parent;
 	public final List<Element> children = new LinkedList<Element>();
 	
-	public Element(Element parent)
-	{
-		this.parent = parent;
-	}
 	
 	public void addChild(Element child)
 	{
+		if(child == null)
+		{
+			System.err.println("tried to add null child");
+			return;
+		}
+		
 		this.children.add(child);
 		child.parent = this;
 	}
@@ -41,11 +43,6 @@ public abstract class Element
 		}
 		
 		return nu;
-	}
-	
-	public List<Element> getChildren()
-	{
-		return children;
 	}
 	
 	public abstract Surprise execute(Executor executor);
