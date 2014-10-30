@@ -14,5 +14,11 @@ public abstract class Wait extends Element
 	{
 		super(parent);
 	}
+	public static final String name = "choice";
+	@Override
+	public String getTypeName()
+	{
+		return name;
+	}
 
 }

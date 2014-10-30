@@ -21,6 +21,8 @@ public class Executor
 	{
 		GlobalInv.i.printOut();
 		
+		ParseFiler.writeTree(root);
+		
 		root.addWant(new MakeSandwich(root));
 		
 		evaluate(root);
