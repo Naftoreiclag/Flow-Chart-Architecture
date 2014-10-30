@@ -5,7 +5,7 @@
  */
 package naftoreiclag.flowchartarch.concrete;
 
-import naftoreiclag.flowchartarch.Anomaly;
+import naftoreiclag.flowchartarch.Surprise;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.Want;
@@ -20,11 +20,17 @@ public class GetMaterialsForSandwich extends Want
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
 		children.add(new LocateBread(this));
 		children.add(new LocateBread(this));
 		return null;
 	}
 
+	public static final String name = "choice";
+	@Override
+	public String getName()
+	{
+		return name;
+	}
 }

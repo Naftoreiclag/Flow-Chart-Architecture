@@ -5,7 +5,7 @@
  */
 package naftoreiclag.flowchartarch.concrete;
 
-import naftoreiclag.flowchartarch.Anomaly;
+import naftoreiclag.flowchartarch.Surprise;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.Want;
@@ -20,10 +20,20 @@ public class ConstructSandwich extends Want
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
-		// TODO Auto-generated method stub
+		this.children.add(new PutDownThing(this, "bread"));
+		this.children.add(new PutDownThing(this, "bread"));
+		
+		
 		return null;
+	}
+
+	public static final String name = "choice";
+	@Override
+	public String getName()
+	{
+		return name;
 	}
 
 }

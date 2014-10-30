@@ -23,5 +23,15 @@ public abstract class Element
 		return children;
 	}
 	
-	public abstract Anomaly execute(Executor executor);
+	public abstract Surprise execute(Executor executor);
+
+	public void getSyntax()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+	public abstract String getTypeName();
+
+	public abstract String getName();
 }

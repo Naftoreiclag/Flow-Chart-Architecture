@@ -5,23 +5,43 @@
  */
 package naftoreiclag.flowchartarch.concrete;
 
-import naftoreiclag.flowchartarch.Anomaly;
+import naftoreiclag.flowchartarch.GlobalInv;
+import naftoreiclag.flowchartarch.Surprise;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.Task;
 
 public class PutDownThing extends Task
 {
-	public PutDownThing(Element parent)
+	String target;
+	
+	public PutDownThing(Element parent, String target)
 	{
 		super(parent);
+		
+		this.target = target;
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
-		// TODO Auto-generated method stub
+		if(!executor.inv.transferObject(GlobalInv.t, target))
+		{
+			return new Surprise("There is no " + target + " to put down!");
+		}
+
+		executor.inv.printOut();
+		GlobalInv.t.printOut();
+		
 		return null;
+		
+	}
+	
+	public static final String name = "choice";
+	@Override
+	public String getName()
+	{
+		return name;
 	}
 
 }

@@ -5,18 +5,6 @@
  */
 package naftoreiclag.flowchartarch;
 
-import java.util.List;
-
-public abstract class Task extends Element
+public class WantSolver
 {
-	public Task(Element parent)
-	{
-		super(parent);
-	}
-	public static final String name = "choice";
-	@Override
-	public String getTypeName()
-	{
-		return name;
-	}
 }

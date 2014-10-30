@@ -10,7 +10,7 @@ import java.util.List;
 
 public class WantRoot extends Element
 {
-	
+	public static final String name = "root";
 
 	public WantRoot()
 	{
@@ -22,10 +22,22 @@ public class WantRoot extends Element
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	@Override
+	public String getTypeName()
+	{
+		return name;
+	}
+	
+	@Override
+	public String getName()
+	{
+		return name;
 	}
 
 }

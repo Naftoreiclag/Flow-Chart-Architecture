@@ -5,11 +5,11 @@
  */
 package naftoreiclag.flowchartarch;
 
-public class Anomaly
+public class Surprise
 {
 	public String string;
 
-	public Anomaly(String string)
+	public Surprise(String string)
 	{
 		this.string = string;
 	}

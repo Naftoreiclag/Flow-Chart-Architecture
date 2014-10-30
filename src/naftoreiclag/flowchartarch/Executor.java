@@ -34,7 +34,7 @@ public class Executor
 	public void evaluate(Element step)
 	{
 		System.out.println("Executing " + step.getClass().getSuperclass().getSimpleName() + ": " + step.getClass().getSimpleName());
-		Anomaly a = step.execute(this);
+		Surprise a = step.execute(this);
 		if(a != null)
 		{
 			System.out.println("  Anomaly: " + a);

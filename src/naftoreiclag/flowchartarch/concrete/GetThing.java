@@ -5,7 +5,7 @@
  */
 package naftoreiclag.flowchartarch.concrete;
 
-import naftoreiclag.flowchartarch.Anomaly;
+import naftoreiclag.flowchartarch.Surprise;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.GlobalInv;
@@ -23,11 +23,11 @@ public class GetThing extends Task
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
 		if(!GlobalInv.i.transferObject(executor.inv, target))
 		{
-			return new Anomaly("There is no " + target + " to take!");
+			return new Surprise("There is no " + target + " to take!");
 		}
 		
 		GlobalInv.i.printOut();
@@ -37,4 +37,10 @@ public class GetThing extends Task
 		
 	}
 
+	public static final String name = "choice";
+	@Override
+	public String getName()
+	{
+		return name;
+	}
 }

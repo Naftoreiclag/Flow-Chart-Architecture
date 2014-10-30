@@ -13,6 +13,7 @@ public class GlobalInv
 	static
 	{
 		i.addObject("bread");
-		i.addObject("bread");
+		//i.addObject("bread");
+		i.addObject("cheese");
 	}
 }

@@ -25,10 +25,17 @@ public abstract class Choice extends Element
 	}
 
 	@Override
-	public Anomaly execute(Executor executor)
+	public Surprise execute(Executor executor)
 	{
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public static final String name = "choice";
+	@Override
+	public String getTypeName()
+	{
+		return name;
 	}
 
 }
