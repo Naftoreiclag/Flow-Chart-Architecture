@@ -9,6 +9,7 @@ import naftoreiclag.flowchartarch.Surprise;
 import naftoreiclag.flowchartarch.Element;
 import naftoreiclag.flowchartarch.Executor;
 import naftoreiclag.flowchartarch.Want;
+import naftoreiclag.flowchartarch.WantRoot;
 
 public class ConstructSandwich extends Want
 {
@@ -34,6 +35,11 @@ public class ConstructSandwich extends Want
 	public String getName()
 	{
 		return name;
+	}
+	@Override
+	public Element clone()
+	{
+		return new ConstructSandwich(null);
 	}
 
 }

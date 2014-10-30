@@ -32,4 +32,9 @@ public class MakeSandwich extends Want
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new MakeSandwich(null);
+	}
 }

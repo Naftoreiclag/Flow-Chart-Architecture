@@ -43,5 +43,10 @@ public class PutDownThing extends Task
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new PutDownThing(null, null);
+	}
 
 }

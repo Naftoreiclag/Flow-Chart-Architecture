@@ -10,12 +10,39 @@ import java.util.List;
 
 import naftoreiclag.flowchartarch.concrete.MakeSandwich;
 
-public class Genes
+public class Genes extends Element
 {
-	public List<Want> wants = new ArrayList<Want>();
-
-	public void addWant(MakeSandwich makeSandwich)
+	public Genes()
 	{
-		wants.add(makeSandwich);
+		super(null);
+	}
+	public void addWant(Want want)
+	{
+		children.add(want);
+	}
+
+
+	@Override
+	public Surprise execute(Executor executor)
+	{
+		return null;
+	}
+
+	public static final String name = "genes";
+	@Override
+	public String getTypeName()
+	{
+		return name;
+	}
+
+	@Override
+	public String getName()
+	{
+		return name;
+	}
+	@Override
+	public Element clone()
+	{
+		return new Genes();
 	}
 }

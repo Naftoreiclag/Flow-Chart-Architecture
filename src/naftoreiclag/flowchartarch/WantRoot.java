@@ -39,5 +39,10 @@ public class WantRoot extends Element
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new WantRoot();
+	}
 
 }

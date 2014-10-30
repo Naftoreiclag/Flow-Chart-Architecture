@@ -31,4 +31,9 @@ public class LocateBread extends Want
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new LocateBread(null);
+	}
 }

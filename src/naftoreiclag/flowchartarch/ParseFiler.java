@@ -6,12 +6,18 @@
 package naftoreiclag.flowchartarch;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import naftoreiclag.flowchartarch.concrete.ConstructSandwich;
+import naftoreiclag.flowchartarch.concrete.GetMaterialsForSandwich;
+import naftoreiclag.flowchartarch.concrete.GetThing;
+import naftoreiclag.flowchartarch.concrete.LocateBread;
+import naftoreiclag.flowchartarch.concrete.MakeSandwich;
+import naftoreiclag.flowchartarch.concrete.PutDownThing;
 
 import org.apache.commons.io.FileUtils;
 
@@ -26,20 +32,105 @@ public class ParseFiler
 	{
 		List<String> data = FileUtils.readLines(new File("file.txt"));
 		
+		
+		System.out.println(data.getClass().toString());
 		System.out.println(data.size());
 		
-		return null;
+		Genes genes = new Genes();
+		List<Element> linage = new ArrayList<Element>();
+		linage.add(0, genes);
+		
+		for(String line : data)
+		{
+			// Track where we are on the string
+			int head = 0;
+			
+			// Depth
+			for(; head < line.length(); ++ head)
+			{
+				if(line.charAt(head) != tab)
+				{
+					break;
+				}
+			}
+			int depth = head;
+			
+			if(depth < 1)
+			{
+				continue;
+			}
+
+			// Type name
+			for(; head < line.length(); ++ head)
+			{
+				if(line.charAt(head) == sep)
+				{
+					break;
+				}
+			}
+			String typeName = line.substring(depth, head);
+			++ head;
+			
+			/*
+			// Concrete name
+			int _foo = head;
+			for(; head < line.length(); ++ head)
+			{
+				if(line.charAt(head) == sep)
+				{
+					break;
+				}
+			}
+			String name = line.substring(_foo, head);
+			++ head;
+			*/
+			
+			System.out.println("depth: " + depth + " type: " + typeName);
+			
+			// parse accordingly
+			
+			
+			// add self
+			
+			
+		}
+		
+		return genes;
 		
 	}
 	
+	public static Map<String, Element> things = new HashMap<String, Element>();
+	static
+	{
+		things.put(ConstructSandwich.name, new ConstructSandwich(null));
+		things.put(GetMaterialsForSandwich.name, new GetMaterialsForSandwich(null));
+		things.put(GetThing.name, new GetThing(null, null));
+		things.put(LocateBread.name, new LocateBread(null));
+		things.put(MakeSandwich.name, new MakeSandwich(null));
+		things.put(PutDownThing.name, new PutDownThing(null, null));
+		//things.
+	}
+	
+	public static Element parse(String name)
+	{
+		Element element = null;
+		
+		Element foo = things.get(name);
+		
+		if(foo != null)
+		{
+
+			element = foo.clone();
+		}
+		
+		return element;
+	}
+
 	public static void writeGenes(Genes genes)
 	{
 		StringBuilder builder = new StringBuilder();
-		
-		for(Want want : genes.wants)
-		{
-			appendElementData(builder, 0, want);
-		}
+
+		appendElementData(builder, 0, genes);
 		
 		try
 		{
@@ -60,22 +151,23 @@ public class ParseFiler
 	
 	private static void appendElementData(StringBuilder builder, int depth, Element elements)
 	{
-		for(int i = 0; i < depth; ++ i)
+		if(depth >= 0)
 		{
-			builder.append(tab);
+			for(int i = 0; i < depth; ++ i)
+			{
+				builder.append(tab);
+			}
+			builder.append(elements.getName());
+			builder.append(sep);
+			
+			// args here
+	
+			builder.append(ssep);
+			
+			// other stuff here
+			
+			builder.append(nl);
 		}
-		builder.append(elements.getTypeName());
-		builder.append(sep);
-		builder.append(elements.getName());
-		builder.append(sep);
-		
-		// args here
-
-		builder.append(ssep);
-		
-		// other stuff here
-		
-		builder.append(nl);
 		
 		List<Element> children = elements.getChildren();
 		if(children != null)

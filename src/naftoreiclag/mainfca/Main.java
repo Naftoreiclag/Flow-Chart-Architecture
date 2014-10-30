@@ -10,7 +10,7 @@ import naftoreiclag.flowchartarch.Executor;
 
 public class Main
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		Executor ex = new Executor();
 		

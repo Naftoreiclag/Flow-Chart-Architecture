@@ -43,4 +43,9 @@ public class GetThing extends Task
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new GetThing(null, null);
+	}
 }

@@ -25,13 +25,11 @@ public class Executor
 		genes.addWant(new MakeSandwich(root));
 
 		ParseFiler.writeGenes(genes);
-		ParseFiler.readGenes();
-		/*
-		root.addWant(new MakeSandwich(root));
+		genes = ParseFiler.readGenes();
+		//root.addWant(new MakeSandwich(root));
 		
-		evaluate(root);
-		ParseFiler.writeTree(root);
-		*/
+		//evaluate(root);
+		//ParseFiler.writeTree(root);
 	}
 	
 	public void setMicrotask(Microtask microTask)

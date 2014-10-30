@@ -33,4 +33,9 @@ public class GetMaterialsForSandwich extends Want
 	{
 		return name;
 	}
+	@Override
+	public Element clone()
+	{
+		return new GetMaterialsForSandwich(null);
+	}
 }

@@ -13,12 +13,34 @@ public abstract class Element
 	public int timesAccessed;
 	public int age;
 	
-	public final Element parent;
+	protected Element parent;
 	public final List<Element> children = new LinkedList<Element>();
 	
 	public Element(Element parent)
 	{
 		this.parent = parent;
+	}
+	
+	public void addChild(Element child)
+	{
+		this.children.add(child);
+		child.parent = this;
+	}
+	
+	//
+	public abstract Element clone();
+	
+	//
+	public Element cloneWithChildren()
+	{
+		Element nu = this.clone();
+		
+		for(Element child : this.children)
+		{
+			nu.addChild(child.cloneWithChildren());
+		}
+		
+		return nu;
 	}
 	
 	public List<Element> getChildren()
