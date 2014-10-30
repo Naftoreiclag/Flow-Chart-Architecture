@@ -25,7 +25,7 @@ public class MakeSandwich extends Want
 		
 		return null;
 	}
-	public static final String name = "choice";
+	public static final String name = "makesandwich";
 	@Override
 	public String getName()
 	{

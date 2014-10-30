@@ -11,7 +11,8 @@ public abstract class Want extends Element
 	{
 		super(parent);
 	}
-	public static final String name = "choice";
+	
+	public static final String name = "want";
 	@Override
 	public String getTypeName()
 	{

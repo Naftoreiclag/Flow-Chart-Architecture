@@ -21,11 +21,14 @@ public class ParseFiler
 	public static final char tab = '\t';
 	public static final char nl = '\n';
 	
-	public static void writeTree(Element root)
+	public static void writeGenes(Genes genes)
 	{
 		StringBuilder builder = new StringBuilder();
 		
-		getTreeSyntax(builder, 0, root);
+		for(Want want : genes.wants)
+		{
+			appendElementData(builder, 0, want);
+		}
 		
 		try
 		{
@@ -44,7 +47,7 @@ public class ParseFiler
 		}
 	}
 	
-	private static void getTreeSyntax(StringBuilder builder, int depth, Element elements)
+	private static void appendElementData(StringBuilder builder, int depth, Element elements)
 	{
 		for(int i = 0; i < depth; ++ i)
 		{
@@ -61,7 +64,7 @@ public class ParseFiler
 			for(int i = 0; i < children.size(); ++ i)
 			{
 				Element child = children.get(i);
-				getTreeSyntax(builder, depth + 1, child);
+				appendElementData(builder, depth + 1, child);
 			}
 		}
 	}

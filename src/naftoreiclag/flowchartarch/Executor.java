@@ -16,16 +16,21 @@ public class Executor
 	
 	Microtask microtask;
 	WantRoot root = new WantRoot();
+	Genes genes = new Genes();
 	
 	public void run()
 	{
 		GlobalInv.i.printOut();
 		
-		ParseFiler.writeTree(root);
-		
+		genes.addWant(new MakeSandwich(root));
+
+		ParseFiler.writeGenes(genes);
+		/*
 		root.addWant(new MakeSandwich(root));
 		
 		evaluate(root);
+		ParseFiler.writeTree(root);
+		*/
 	}
 	
 	public void setMicrotask(Microtask microTask)
