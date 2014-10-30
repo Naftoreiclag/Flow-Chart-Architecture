@@ -22,10 +22,11 @@ public class Executor
 	{
 		GlobalInv.i.printOut();
 		
-		genes.addWant(new MakeSandwich(root));
+		//genes.addWant(new MakeSandwich(root));
 
-		ParseFiler.writeGenes(genes);
+		//ParseFiler.writeGenes(genes);
 		genes = ParseFiler.readGenes();
+		ParseFiler.writeGenes(genes);
 		//root.addWant(new MakeSandwich(root));
 		
 		//evaluate(root);

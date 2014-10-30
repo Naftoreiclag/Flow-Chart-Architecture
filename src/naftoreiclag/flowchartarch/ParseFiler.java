@@ -88,10 +88,11 @@ public class ParseFiler
 			System.out.println("depth: " + depth + " type: " + typeName);
 			
 			// parse accordingly
+			Element el = parse(typeName);
 			
+			linage.add(depth, el);
 			
-			// add self
-			
+			linage.get(depth - 1).addChild(el);
 			
 		}
 		
@@ -119,7 +120,6 @@ public class ParseFiler
 		
 		if(foo != null)
 		{
-
 			element = foo.clone();
 		}
 		

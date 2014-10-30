@@ -15,13 +15,13 @@ public class MakeSandwich extends Want
 	public MakeSandwich(Element parent)
 	{
 		super(parent);
-		children.add(new GetMaterialsForSandwich(this));
-		children.add(new ConstructSandwich(this));
 	}
 
 	@Override
 	public Surprise execute(Executor executor)
 	{
+		children.add(new GetMaterialsForSandwich(this));
+		children.add(new ConstructSandwich(this));
 		
 		return null;
 	}
