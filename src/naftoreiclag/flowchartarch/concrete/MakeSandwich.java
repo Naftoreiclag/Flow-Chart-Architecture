@@ -12,13 +12,13 @@ import naftoreiclag.flowchartarch.Want;
 
 public class MakeSandwich extends Want
 {
+	public static final String name = "w_makesandwich";
+	
 	@Override
 	public Surprise execute(Executor executor)
 	{
 		return null;
 	}
-	
-	public static final String name = "makesandwich";
 	@Override
 	public String getName()
 	{
